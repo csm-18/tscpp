@@ -1,14 +1,30 @@
 #include <iostream>
 #include <vector>
+#include <cstdlib>
+#include "utils.hpp"
 
+bool is_build_command(std::string name);
+
+//entry-point to the compiler
 int main(int argc, char **argv) {
+    //command-line arguments
     std::vector<std::string> args;
-	for(int i = 0; i < argc;i+=1){
-		args.push_back(argv[i]);
-	}
+		for(int i = 1; i < argc;i+=1){
+			args.push_back(argv[i]);	
+		}
 
-	for(const auto& arg : args){
-		std::cout << arg<<"\n";
-	}
-    return 0;
+		if(args.size() != 0 && is_build_command(args[0])){
+			//build mode
+			std::cout << "Build command is not implemented yet!\n";
+			std::exit(1);
+		}
+
+	return 0;
+}
+
+bool is_build_command(std::string name){
+	name = to_lower(name);
+	if(name == "-build" || name == "--build" || name == "-b" || name == "--b")
+		return true;	
+	return false;
 }

@@ -57,7 +57,7 @@ target("tscpp")
     set_optimize("fastest")
 --
 --    -- add include search directories
---    add_includedirs("/usr/include", "/usr/local/include")
+    add_includedirs("./include/")
 --
 --    -- add link libraries and search directories
 --    add_links("tbox")
