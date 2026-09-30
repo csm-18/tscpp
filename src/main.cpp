@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstdlib>
 #include "utils.hpp"
+#include "arg_parser.hpp"
 
 bool is_build_command(std::string name);
 
@@ -19,6 +20,7 @@ int main(int argc, char **argv) {
 			std::exit(1);
 		}
 
+    parse(args);
 	return 0;
 }
 
