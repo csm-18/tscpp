@@ -1,8 +1,12 @@
 add_rules("mode.debug", "mode.release")
+add_rules("plugin.compile_commands.autoupdate")
+add_requires("fmt")
 
 target("tscpp")
     set_kind("binary")
+    set_languages("c++17")
     add_files("src/*.cpp")
+    add_packages("fmt")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
@@ -48,16 +52,16 @@ target("tscpp")
 --    add_defines("NDEBUG", "_GNU_SOURCE=1")
 --
 --    -- set warning all as error
-    set_warnings("all", "error")
+set_warnings("all", "error")
 --
 --    -- set language: c99, c++11
 --    set_languages("c99", "c++11")
 --
 --    -- set optimization: none, faster, fastest, smallest
-    set_optimize("fastest")
+set_optimize("fastest")
 --
 --    -- add include search directories
-    add_includedirs("./include/")
+add_includedirs("./include/")
 --
 --    -- add link libraries and search directories
 --    add_links("tbox")
@@ -72,4 +76,3 @@ target("tscpp")
 --
 -- @endcode
 --
-
